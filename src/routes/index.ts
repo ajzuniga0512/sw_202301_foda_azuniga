@@ -2,6 +2,7 @@ import express from 'express';
 const router  = express.Router();
 
 import empresasRouter from './empresas/empresas';
+import usuariosRouter from './usuarios/usuarios';
 //REST API
 //Internet -> HTTP -> REST API -> DB
 //SOAP XML wsdl
@@ -26,6 +27,7 @@ router.get('/', (_req, res) => {
  });
 
  router.use('/empresas', empresasRouter);
+ router.use('/usuarios', usuariosRouter);
 
  //router.get  router.post  router.put  router.delete  router.use
 
