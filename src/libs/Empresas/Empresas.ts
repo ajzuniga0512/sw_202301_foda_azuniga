@@ -31,6 +31,14 @@ export class Empresas {
         return this.empresas;
     }
 
+    getById(codigo: string){
+        const empresaToReturn = this.empresas.find((emp)=>{
+            return emp.codigo === codigo;
+        });
+
+        return empresaToReturn;
+    }
+
     update(updateEmpresa: IEmpresa){
        const newEmpresas: IEmpresa[] = this.empresas.map((emp)=>{
         if (emp.codigo === updateEmpresa.codigo){
@@ -42,6 +50,22 @@ export class Empresas {
        this.empresas= newEmpresas;
        return true;
 
+    }
+
+    delete(codigo:string){
+       const empresaToDelete = this.empresas.find((emp)=>{
+        return emp.codigo === codigo;
+       }); 
+
+       if(empresaToDelete){
+        const newEmpresas: IEmpresa[] = this.empresas.filter((emp)=>{
+            return emp.codigo !== codigo;
+        });
+        this.empresas = newEmpresas;
+        return true;
+       }
+
+       return false;
     }
 
 }

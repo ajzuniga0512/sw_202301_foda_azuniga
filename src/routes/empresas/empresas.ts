@@ -36,6 +36,15 @@ router.get('/all', (_req, res)=>{
     res.status(200).json(empresasModel.getAll());
 });
 
+router.get('/byid/:id', (req, res)=>{
+    const {id: codigo} = req.params;
+    const empresa= empresasModel.getById(codigo);
+    if(empresa){
+        return res.status(200).json(empresa);
+    }
+    return res.status(404).json({"error": "No se encontro la empresa"});
+});
+
 router.post('/new', (req, res) =>{
     console.log("Empresas /new request body:", req.body);
 
@@ -66,8 +75,7 @@ router.put('/upd/:id', (req, res)=>{
     const {
         nombre="Alejandro Zuniga", 
         status="Activo", 
-        observacion=""
-        
+        observacion=""    
     }=req.body;
     
     const updateEmpresa : IEmpresa = {
@@ -80,16 +88,26 @@ router.put('/upd/:id', (req, res)=>{
     };
 
     if (empresasModel.update(updateEmpresa)) {
-        return res.status(200).json({"Se cambio": "Se actualizo la empresa"});
+        return res.status(200).json({"Updated":true });
     }
 
     return res.status(404).json({"error": "Al actualizar la empresa"});
-
-
-    
+  
 });
 
-/* router.get('/', (_req, res)=>{
+router.delete('/del/:id', (req, res)=>{
+    const {id: codigo } = req.params; 
+
+    if(empresasModel.delete(codigo)){
+        return res.status(200).json({"deleted": true});
+
+    }
+
+    return res.status(404).json({"error": "No se pudo eliminar la empresa"});
+});
+ 
+
+/* router.get('/', (req, res)=>{
     
 });
 */
