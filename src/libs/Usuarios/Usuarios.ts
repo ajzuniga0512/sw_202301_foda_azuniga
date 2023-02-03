@@ -3,7 +3,7 @@ export interface IUsuarios{
     correo: string;
     nombre: string;
     password: string;
-    roles: string;
+    roles: string[];
     creado: Date;
     ultimoAcceso: Date;
     observacion?: string; 
@@ -41,15 +41,16 @@ export class Usuarios{
     }
 
     update(updateUsuario: IUsuarios){
+        let updated = false;
        const newUsuarios: IUsuarios[] = this.usuarios.map((usu)=>{
         if (usu.codigo === updateUsuario.codigo){
-            return {...usu, ...updateUsuario, creado: new Date()};
+            return {...usu, ...updateUsuario, updated: new Date()};
         }
         return usu;
 
        });
        this.usuarios= newUsuarios;
-       return true;
+       return updated;
 
     }
 
