@@ -3,7 +3,7 @@ export interface IUsuarios{
     correo: string;
     nombre: string;
     password: string;
-    roles: string[];
+    roles: string;
     creado: Date;
     ultimoAcceso: Date;
     observacion?: string; 

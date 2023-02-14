@@ -10,7 +10,7 @@ usuariosModel.add({
     correo: 'josuezuniga05@hotmail.com',
     nombre: 'Alejandro',
     password: 'holaquetal',
-    roles: 'Gerente',
+    roles: 'ADM',
     creado: undefined,
     ultimoAcceso: undefined
 });
