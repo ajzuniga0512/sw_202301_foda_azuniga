@@ -12,7 +12,7 @@ usuariosModel.add({
     password: 'holaquetal',
     roles: 'ADM',
     creado: undefined,
-    ultimoAcceso: undefined
+    ultimoAcceso: undefined   
 });
 
 router.get('/', (_req, res)=>{
