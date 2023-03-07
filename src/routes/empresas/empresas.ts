@@ -10,7 +10,7 @@ empresasDao.init().then(()=>{
   empresasModel = new Empresas(empresasDao);
 });
 
-//registrar los endpoint en router
+//registrar los endpoint en r outer  
 //http://localhost:3001/empresas
 router.get('/', (_req, res)=>{
   const jsonUrls = {
