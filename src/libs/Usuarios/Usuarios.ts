@@ -1,11 +1,10 @@
 import { IUsuarios } from "@dao/models/Usuarios/IUsuarios";
 import { IDataAccessObject } from "@dao/IDataAccessObject";
 export class Usuarios {
-  private usuarios: IUsuarios[];
+ 
   private dao: IDataAccessObject;
   constructor(dao: IDataAccessObject) {
     this.dao = dao;
-    this.usuarios = [];
   }
   getAll() {
     return this.dao.findAll();
